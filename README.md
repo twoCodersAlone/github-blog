@@ -22,7 +22,8 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Initial setup
 
-- [ ] eslint
+- [x] eslint
+- [x] husky
 - [ ] prettier
 - [ ] typescript
 - [ ] jest/react-testing-library (unit tests)
