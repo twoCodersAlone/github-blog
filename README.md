@@ -25,6 +25,22 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 - [x] eslint
 - [x] husky
 - [x] prettier
+- [ ] editorconfig
 - [ ] typescript
 - [ ] jest/react-testing-library (unit tests)
 - [ ] cypress/playwright (e2e tests)
+
+## Plugins
+
+### Recommended
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+
+### Optional
+
+- [vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
+- [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
+- [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [ES7+ React/Redux/React-Native snippet](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
