@@ -9,7 +9,9 @@
     "eslint": "eslint .",
     "eslint:fix": "eslint --fix .",
     "prettier": "prettier . --write",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "next": "14.0.0",
@@ -17,6 +19,9 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -26,6 +31,9 @@
     "eslint-config-next": "^14.0.0",
     "eslint-plugin-react": "^7.33.2",
     "husky": "^8.0.0",
-    "prettier": "3.0.3"
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "prettier": "3.0.3",
+    "ts-node": "^10.9.1"
   }
 }

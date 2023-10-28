@@ -27,7 +27,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 - [x] prettier
 - [x] editorconfig
 - [x] typescript
-- [ ] jest/react-testing-library (unit tests)
+- [x] jest/react-testing-library (unit tests)
 - [ ] cypress/playwright (e2e tests)
 
 ## Plugins
