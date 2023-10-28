@@ -6,12 +6,6 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -28,7 +22,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 - [x] editorconfig
 - [x] typescript
 - [x] jest/react-testing-library (unit tests)
-- [ ] cypress/playwright (e2e tests)
+- [x] cypress/playwright (e2e tests)
 
 ## Plugins
 
@@ -44,3 +38,12 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 - [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
 - [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 - [ES7+ React/Redux/React-Native snippet](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
+
+## Bugs
+
+- [ ] Typescript lint error on unit test files
+- [ ] Test coverage not including not tested files
+
+## Nice to have
+
+- [ ] Accessibility tests
