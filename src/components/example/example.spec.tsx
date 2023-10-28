@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-
 import { Example } from '.';
 
 describe('example', () => {
