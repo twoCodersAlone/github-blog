@@ -41,9 +41,6 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Bugs
 
-- [ ] Typescript lint error on unit test files
-- [ ] Test coverage not including not tested files
-
 ## Nice to have
 
 - [ ] Accessibility tests
