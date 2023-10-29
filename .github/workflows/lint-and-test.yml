@@ -4,7 +4,6 @@ on:
 jobs:
   lint-and-test:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -12,10 +11,10 @@ jobs:
           node-version: 20.9.0
           cache: 'npm'
 
-      - name: Dependencies
+      - name: dependencies
         run: npm ci --ignore-scripts
 
-      - name: Lint
+      - name: lint
         run: npm run eslint
 
       - name: unit tests
