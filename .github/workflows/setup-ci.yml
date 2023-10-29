@@ -1,0 +1,3 @@
+name: setup-ci
+on:
+  workflow_call:
