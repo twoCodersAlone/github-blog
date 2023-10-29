@@ -3,18 +3,8 @@ on:
   workflow_call:
 jobs:
   build:
-    name: Run Build
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20.9.0
-          cache: 'npm'
-
-      - name: Dependencies
-        run: npm ci --ignore-scripts
-
       - name: Build
         run: npm run build

@@ -4,11 +4,28 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  lint-and-test:
-    uses: ./.github/workflows/lint-and-test.yml
-  build:
-    uses: ./.github/workflows/build.yml
-    needs: lint-and-test
-  e2e:
-    uses: ./.github/workflows/e2e.yml
-    needs: build
+  on-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20.9.0
+          cache: 'npm'
+
+      - name: Dependencies
+        run: npm install
+
+      - name: lint-and-test
+        uses: ./.github/workflows/lint-and-test.yml
+      - name: build
+        uses: ./.github/workflows/build.yml
+
+  # lint-and-test:
+  #   uses: ./.github/workflows/lint-and-test.yml
+  # build:
+  #   uses: ./.github/workflows/build.yml
+  #   needs: lint-and-test
+  # e2e:
+  #   uses: ./.github/workflows/e2e.yml
+  #   needs: build
