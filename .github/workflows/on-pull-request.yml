@@ -1,0 +1,13 @@
+name: PR checks
+on:
+  pull_request:
+    types: [opened, synchronize]
+jobs:
+  lint-and-test:
+    uses: ./.github/workflows/lint-and-test.yml
+  build:
+    uses: ./.github/workflows/build.yml
+    needs: lint-and-test
+  e2e:
+    uses: ./.github/workflows/e2e.yml
+    needs: build
