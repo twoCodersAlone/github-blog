@@ -5,7 +5,7 @@ describe('Home Page', () => {
   it('should render page', () => {
     render(<Page />);
     const exampleElement = screen.getByTestId('example-container');
-    const titleElement = screen.getByText('GITHUB BLOG');
+    const titleElement = screen.getByText('Home');
 
     expect(exampleElement.textContent).toBe('example');
     expect(titleElement).toBeTruthy();
