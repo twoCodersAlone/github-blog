@@ -49,7 +49,8 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## TODO
 
+- [ ] fix mobile navbar: it doesn't close when clicking on a Link item.
 - [ ] implement unit test to Navbar - Logo, Items, Icons
 - [ ] implement e2e tests for Navbar - link navigation functionality
-- [ ] refactor on tailwind styles (eg. remove unnecessary dark mode styles)
+- [✅] refactor on tailwind styles (eg. remove unnecessary dark mode styles)
 - [ ] refactor generateVerifyCurrentPathname and tests (eg. name and feel free to improve the logic)

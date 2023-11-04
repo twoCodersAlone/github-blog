@@ -35,7 +35,12 @@ export const Items = ({
         'sm:block'
       )}
     >
-      <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
+      <div
+        className={clsx(
+          'flex flex-col gap-5 mt-5',
+          'sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5'
+        )}
+      >
         {items.map(({ name, href }) => {
           const isCurrentPathname = verifyCurrentPathname(href);
           return (

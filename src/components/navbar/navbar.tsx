@@ -5,6 +5,7 @@ import { Items } from './items';
 import { MenuButton } from './menu-button';
 import { usePathname } from 'next/navigation';
 import { navbarItems } from '@/src/data/navbar';
+import clsx from 'clsx';
 
 export const generateVerifyCurrentPathname =
   (currentPathname: string) => (pathname: string) => {
@@ -22,9 +23,17 @@ export const Navbar = () => {
   const verifyCurrentPathname = generateVerifyCurrentPathname(currentPathname);
 
   return (
-    <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
+    <header
+      className={clsx(
+        'flex flex-wrap w-full bg-gray-800 text-sm py-4 z-50',
+        'sm:justify-start sm:flex-nowrap'
+      )}
+    >
       <nav
-        className="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between"
+        className={clsx(
+          'max-w-[85rem] w-full mx-auto px-4',
+          'sm:flex sm:items-center sm:justify-between'
+        )}
         aria-label="Global"
       >
         <div className="flex items-center justify-between">
