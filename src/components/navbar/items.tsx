@@ -6,6 +6,7 @@ import { NavbarItem } from '@/src/data/navbar';
 interface NavbarItemsProps {
   items: NavbarItem[];
   isOpen: boolean;
+  toggleOpen: () => void;
   verifyCurrentPathname: (pathname: string) => boolean;
 }
 
@@ -24,6 +25,7 @@ const getLinkProps = (
 
 export const Items = ({
   isOpen,
+  toggleOpen,
   items,
   verifyCurrentPathname,
 }: NavbarItemsProps) => {
@@ -44,7 +46,12 @@ export const Items = ({
         {items.map(({ name, href }) => {
           const isCurrentPathname = verifyCurrentPathname(href);
           return (
-            <Link key={href} href={href} {...getLinkProps(isCurrentPathname)}>
+            <Link
+              key={href}
+              href={href}
+              onClick={toggleOpen}
+              {...getLinkProps(isCurrentPathname)}
+            >
               {name}
             </Link>
           );
