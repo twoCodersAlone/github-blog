@@ -1,7 +1,7 @@
 name: PR checks
 on:
   pull_request:
-    types: [ready_for_review]
+    types: [ready_for_review, synchronize, opened]
 jobs:
   lint-and-test:
     uses: ./.github/workflows/lint-and-test.yml
