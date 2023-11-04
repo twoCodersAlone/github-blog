@@ -54,4 +54,4 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 - [ ] implement e2e tests for Navbar - link navigation functionality
 - [✅] refactor on tailwind styles (eg. remove unnecessary dark mode styles)
 - [ ] refactor generateVerifyCurrentPathname and tests (eg. name and feel free to improve the logic)
-- [ ] prevent pull request actions when in draft mode.
+- [✅] prevent pull request actions when in draft mode.
