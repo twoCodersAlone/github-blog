@@ -6,8 +6,10 @@ jobs:
   lint-and-test:
     uses: ./.github/workflows/lint-and-test.yml
   build:
+    if: '! github.event.pull_request.draft'
     uses: ./.github/workflows/build.yml
     needs: lint-and-test
   e2e:
+    if: '! github.event.pull_request.draft'
     uses: ./.github/workflows/e2e.yml
     needs: build
