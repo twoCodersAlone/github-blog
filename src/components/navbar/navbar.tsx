@@ -43,6 +43,7 @@ export const Navbar = () => {
         <Items
           items={navbarItems}
           isOpen={isOpen}
+          toggleOpen={toggleOpen}
           verifyCurrentPathname={verifyCurrentPathname}
         />
       </nav>

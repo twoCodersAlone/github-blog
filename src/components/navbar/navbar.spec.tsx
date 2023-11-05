@@ -1,11 +1,8 @@
-// import { render, screen } from '@testing-library/react';
-// import { Navbar } from '.';
-
 import { generateVerifyCurrentPathname } from './navbar';
 
 describe('Navbar', () => {
   describe('verifyCurrentPathname', () => {
-    it('should return true when it is in homepage and the pathname refer to homepage', () => {
+    it('should return true when in homepage with corresponding pathname', () => {
       const mockCurrentPathname = '/';
       const mockPathname = '/';
 
@@ -15,7 +12,7 @@ describe('Navbar', () => {
       expect(verifyCurrentPathname(mockPathname)).toBeTruthy();
     });
 
-    it('should return false when it is in homepage and the pathname is not homepage', () => {
+    it('should return false when in homepage but pathname does not match', () => {
       const mockCurrentPathname = '/';
       const mockPathname = '/some-path';
 
@@ -25,7 +22,7 @@ describe('Navbar', () => {
       expect(verifyCurrentPathname(mockPathname)).toBeFalsy();
     });
 
-    it('should return false when it is not in homepage and the pathname is homepage', () => {
+    it('should return false when corresponding to homepage, but not in homepage', () => {
       const mockCurrentPathname = '/some-path';
       const mockPathname = '/';
 
@@ -35,7 +32,7 @@ describe('Navbar', () => {
       expect(verifyCurrentPathname(mockPathname)).toBeFalsy();
     });
 
-    it('should return false when it is not in homepage and the pathname is not homepage and current page', () => {
+    it('should return false when pathname different than current page, excluding homepage', () => {
       const mockCurrentPathname = '/some-path';
       const mockPathname = '/some-path2';
 
@@ -45,7 +42,7 @@ describe('Navbar', () => {
       expect(verifyCurrentPathname(mockPathname)).toBeFalsy();
     });
 
-    it('should return true when it is not in homepage and the pathname is the same of current page', () => {
+    it('should return true when pathname corresponds to current page, excluding homepage', () => {
       const mockCurrentPathname = '/some-path';
       const mockPathname = '/some-path';
 
@@ -55,7 +52,7 @@ describe('Navbar', () => {
       expect(verifyCurrentPathname(mockPathname)).toBeTruthy();
     });
 
-    it('should return true when it is not in homepage and the current page is nested path of pathname', () => {
+    it('should return true when current page is nested path of pathname, excluding homepage', () => {
       const mockCurrentPathname = '/some-path/some-sub-path';
       const mockPathname = '/some-path';
 

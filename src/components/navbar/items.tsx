@@ -10,14 +10,13 @@ interface NavbarItemsProps {
   verifyCurrentPathname: (pathname: string) => boolean;
 }
 
-const getLinkProps = (
+export const getLinkProps = (
   isCurrentPage: boolean
 ): AnchorHTMLAttributes<HTMLAnchorElement> => {
   return {
     className: clsx(
       'font-medium',
-      isCurrentPage ? 'text-blue-500' : 'text-gray-600',
-      !isCurrentPage && 'text-gray-400 hover:text-gray-500'
+      isCurrentPage ? 'text-blue-500' : 'text-gray-400 hover:text-gray-500'
     ),
     ...(isCurrentPage && { 'aria-current': 'page' }),
   };
@@ -36,6 +35,7 @@ export const Items = ({
         'overflow-hidden transition-all duration-300 basis-full grow',
         'sm:block'
       )}
+      data-testid="navbar-items"
     >
       <div
         className={clsx(
