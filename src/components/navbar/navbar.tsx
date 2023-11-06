@@ -24,6 +24,7 @@ export const Navbar = () => {
 
   return (
     <header
+      data-testid="navbar"
       className={clsx(
         'flex flex-wrap w-full bg-gray-800 text-sm py-4 z-50',
         'sm:justify-start sm:flex-nowrap'

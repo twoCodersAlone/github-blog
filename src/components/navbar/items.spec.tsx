@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { Items, getLinkProps } from './items';
 import { generateVerifyCurrentPathname } from './navbar';
 import { AnchorHTMLAttributes } from 'react';
+import { NavbarItem } from '@/src/data/navbar';
 
 describe('Items', () => {
   describe('getLinkProps', () => {
@@ -54,7 +55,7 @@ describe('Items', () => {
 
       expect(screen.getByTestId('navbar-items')).toBeVisible();
     });
-    it.skip('should not be visible', () => {
+    it('should not be visible', () => {
       const mockIsOpen = false;
       const mockVerifyCurrentPathname = generateVerifyCurrentPathname('test');
       render(
@@ -66,7 +67,36 @@ describe('Items', () => {
         />
       );
 
-      expect(screen.getByTestId('navbar-items')).not.toBeVisible();
+      expect(screen.queryByTestId('navbar-items')).not.toBeInTheDocument();
+    });
+
+    it('should have list of items', () => {
+      const mockIsOpen = true;
+      const mockVerifyCurrentPathname =
+        generateVerifyCurrentPathname('/page-1');
+      const mockItems: NavbarItem[] = [
+        { name: 'Page 1', href: '/page-1' },
+        { name: 'Page 2', href: '/page-2' },
+      ];
+
+      render(
+        <Items
+          isOpen={mockIsOpen}
+          toggleOpen={() => {}}
+          items={mockItems}
+          verifyCurrentPathname={mockVerifyCurrentPathname}
+        />
+      );
+
+      expect(screen.getByTestId('navbar-items')).toBeInTheDocument();
+      expect(screen.getByTestId('menu-link-/page-1')).toHaveAttribute(
+        'href',
+        '/page-1'
+      );
+      expect(screen.getByTestId('menu-link-/page-2')).toHaveAttribute(
+        'href',
+        '/page-2'
+      );
     });
   });
 });

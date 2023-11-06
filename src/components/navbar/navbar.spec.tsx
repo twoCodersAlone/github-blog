@@ -1,4 +1,5 @@
-import { generateVerifyCurrentPathname } from './navbar';
+import { render, screen } from '@testing-library/react';
+import { Navbar, generateVerifyCurrentPathname } from './navbar';
 
 describe('Navbar', () => {
   describe('verifyCurrentPathname', () => {
@@ -60,6 +61,13 @@ describe('Navbar', () => {
         generateVerifyCurrentPathname(mockCurrentPathname);
 
       expect(verifyCurrentPathname(mockPathname)).toBeTruthy();
+    });
+  });
+
+  describe('Navbar component', () => {
+    it('should render', () => {
+      render(<Navbar />);
+      expect(screen.getByTestId('navbar')).toBeInTheDocument();
     });
   });
 });

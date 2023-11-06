@@ -29,34 +29,36 @@ export const Items = ({
   verifyCurrentPathname,
 }: NavbarItemsProps) => {
   return (
-    <div
-      className={clsx(
-        isOpen ? 'block' : 'hidden',
-        'overflow-hidden transition-all duration-300 basis-full grow',
-        'sm:block'
-      )}
-      data-testid="navbar-items"
-    >
+    isOpen && (
       <div
         className={clsx(
-          'flex flex-col gap-5 mt-5',
-          'sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5'
+          'overflow-hidden transition-all duration-300 basis-full grow',
+          'sm:block'
         )}
+        data-testid="navbar-items"
       >
-        {items.map(({ name, href }) => {
-          const isCurrentPathname = verifyCurrentPathname(href);
-          return (
-            <Link
-              key={href}
-              href={href}
-              onClick={toggleOpen}
-              {...getLinkProps(isCurrentPathname)}
-            >
-              {name}
-            </Link>
-          );
-        })}
+        <div
+          className={clsx(
+            'flex flex-col gap-5 mt-5',
+            'sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5'
+          )}
+        >
+          {items.map(({ name, href }) => {
+            const isCurrentPathname = verifyCurrentPathname(href);
+            return (
+              <Link
+                data-testid={`menu-link-${href}`}
+                key={href}
+                href={href}
+                onClick={toggleOpen}
+                {...getLinkProps(isCurrentPathname)}
+              >
+                {name}
+              </Link>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    )
   );
 };
