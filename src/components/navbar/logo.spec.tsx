@@ -1,12 +1,11 @@
 import { render, screen } from '@testing-library/react';
-import { Icons } from '../icons';
 import { Logo } from './logo';
 
 describe('Logo', () => {
   it('should show Github icon', () => {
     render(<Logo />);
 
-    expect(render(<Icons.Github />)).toBeTruthy();
+    expect(screen.getByTestId('github-icon')).toBeInTheDocument();
   });
 
   it('should have Blog text content', () => {
