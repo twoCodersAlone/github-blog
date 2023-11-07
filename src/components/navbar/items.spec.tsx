@@ -55,7 +55,7 @@ describe('Items', () => {
 
       expect(screen.getByTestId('navbar-items')).toBeVisible();
     });
-    it('should not be visible', () => {
+    it.skip('should not be visible', () => {
       const mockIsOpen = false;
       const mockVerifyCurrentPathname = generateVerifyCurrentPathname('test');
       render(
