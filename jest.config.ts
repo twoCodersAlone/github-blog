@@ -14,6 +14,8 @@ const customJestConfig = {
     'src/**/*.{ts,tsx}',
     '!src/**/index.{ts,tsx}',
     '!src/**/layout.{ts,tsx}',
+    '!src/data/*.{ts,tsx}',
+    '!src/components/icons/*.{ts,tsx}',
   ],
 };
 

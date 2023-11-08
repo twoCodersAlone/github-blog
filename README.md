@@ -16,13 +16,13 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Initial setup
 
-- [x] eslint
-- [x] husky
-- [x] prettier
-- [x] editorconfig
-- [x] typescript
-- [x] jest/react-testing-library (unit tests)
-- [x] cypress/playwright (e2e tests)
+- [✅] eslint
+- [✅] husky
+- [✅] prettier
+- [✅] editorconfig
+- [✅] typescript
+- [✅] jest/react-testing-library (unit tests)
+- [✅] cypress/playwright (e2e tests)
 
 ## Plugins
 
@@ -46,3 +46,12 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ## Nice to have
 
 - [ ] Accessibility tests
+
+## TODO
+
+- [✅] fix mobile navbar: it doesn't close when clicking on a Link item.
+- [ ] implement unit test to Navbar - Logo, Items, Icons
+- [ ] implement e2e tests for Navbar - link navigation functionality
+- [✅] refactor on tailwind styles (eg. remove unnecessary dark mode styles)
+- [ ] refactor generateVerifyCurrentPathname and tests (eg. name and feel free to improve the logic)
+- [✅] prevent pull request actions when in draft mode.
