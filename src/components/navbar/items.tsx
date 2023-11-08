@@ -50,6 +50,7 @@ export const Items = ({
               data-testid={`menu-link-${href}`}
               key={href}
               href={href}
+              // TODO: add a global control to close menu mobile on route change
               onClick={toggleOpen}
               {...getLinkProps(isCurrentPathname)}
             >
