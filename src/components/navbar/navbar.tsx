@@ -1,6 +1,6 @@
 'use client';
 import { useToggle } from '@mantine/hooks';
-import { Logo } from './logo';
+import { Logo } from '@/src/components/logo';
 import { Items } from './items';
 import { MenuButton } from './menu-button';
 import { usePathname } from 'next/navigation';
@@ -38,7 +38,7 @@ export const Navbar = () => {
         aria-label="Global"
       >
         <div className="flex items-center justify-between">
-          <Logo />
+          <Logo testId="navbar-logo" />
           <MenuButton isOpen={isOpen} toggleOpen={toggleOpen} />
         </div>
         <Items

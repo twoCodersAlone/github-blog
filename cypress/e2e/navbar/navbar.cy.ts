@@ -5,11 +5,12 @@ describe('Navbar', () => {
     beforeEach(() => {
       cy.visit('/');
     });
+
     it('should render navbar', () => {
       cy.get('[data-testid="navbar"]').should('exist');
     });
     it('should render logo', () => {
-      cy.get('[data-testid="blog-logo"]').should('exist');
+      cy.get('[data-testid="navbar-logo"]').should('exist');
     });
     it('should render navbar items', () => {
       cy.get('[data-testid="navbar-items"]').should('be.visible');
@@ -38,11 +39,12 @@ describe('Navbar', () => {
       cy.viewport('iphone-x');
       cy.visit('/');
     });
+
     it('should render navbar', () => {
       cy.get('[data-testid="navbar"]').should('exist');
     });
     it('should render logo', () => {
-      cy.get('[data-testid="blog-logo"]').should('exist');
+      cy.get('[data-testid="navbar-logo"]').should('exist');
     });
     it('should render navbar items', () => {
       cy.get('[data-testid="navbar-items"]').should('not.be.visible');
@@ -65,7 +67,7 @@ describe('Navbar', () => {
 
         linkElement.should('have.text', name);
         linkElement.click();
-        cy.location('href').should('include', href);
+        cy.location('pathname').should('eq', href);
       });
     });
 
