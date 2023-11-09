@@ -1,7 +1,9 @@
+import { TopicsSection } from '../components/topics-section';
+
 export default function Home() {
   return (
     <main>
-      <h1>Home</h1>
+      <TopicsSection />
     </main>
   );
 }
