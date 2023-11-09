@@ -2,21 +2,21 @@ import { render, screen } from '@testing-library/react';
 import { Logo } from './logo';
 
 describe('Logo', () => {
-  it('should show Github icon', () => {
-    render(<Logo />);
+  beforeEach(() => {
+    render(<Logo testId="logo" />);
+  });
 
+  it('should show Github icon', () => {
     expect(screen.getByTestId('github-icon')).toBeInTheDocument();
   });
 
   it('should have Blog text content', () => {
-    render(<Logo />);
-    const blog = screen.getByTestId('blog-logo');
+    const blog = screen.getByTestId('logo');
 
     expect(blog.textContent).toBe('Blog');
   });
 
   it('should have attribute href, navigating to homepage', () => {
-    render(<Logo />);
     const link = screen.getByRole('link', { name: 'Blog' });
 
     expect(link).toHaveAttribute('href', '/');
