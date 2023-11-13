@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 interface TopicsParams {
   topics: {
     title: string;
@@ -10,7 +12,7 @@ export const Topics = ({ topics }: TopicsParams) => {
   return (
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
       {topics.map(({ title, href, description, icon }) => (
-        <a
+        <Link
           aria-label={`Go to ${title} topic`}
           key={href}
           href={href}
@@ -22,7 +24,7 @@ export const Topics = ({ topics }: TopicsParams) => {
           <p className="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
             {description}
           </p>
-        </a>
+        </Link>
       ))}
     </div>
   );
