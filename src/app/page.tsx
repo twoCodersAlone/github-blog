@@ -1,9 +1,9 @@
-import { TopicsSection } from '../components/topics-section';
+import { CallToAction } from '../components/call-to-action';
 
 export default function Home() {
   return (
     <main>
-      <TopicsSection />
+      <CallToAction />
     </main>
   );
 }
