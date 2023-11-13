@@ -4,8 +4,10 @@ export interface NavbarItem {
 }
 
 export const navbarItems: NavbarItem[] = [
-  { name: 'Home', href: '/' },
+  { name: 'Angular', href: '/angular' },
   { name: 'React', href: '/react' },
   { name: 'Java', href: '/java' },
+  { name: 'Spring Boot', href: '/spring-boot' },
   { name: 'Node', href: '/node' },
+  { name: 'Python', href: '/python' },
 ];
