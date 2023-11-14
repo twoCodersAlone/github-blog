@@ -1,4 +1,4 @@
-import { Icons } from '../icons';
+import { RandomButton } from './random-button';
 
 export const Description = () => {
   return (
@@ -15,12 +15,7 @@ export const Description = () => {
         technologies.
       </p>
 
-      <a
-        href="#"
-        className="mt-8 flex max-w-fit items-center gap-2 rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
-      >
-        Choose one to me <Icons.Random />
-      </a>
+      <RandomButton />
     </div>
   );
 };

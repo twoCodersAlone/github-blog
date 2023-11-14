@@ -71,7 +71,6 @@ describe('Items', () => {
 
   describe('Items component', () => {
     it('should be visible', () => {
-      jest.mock('next/navigation', () => ({ usePathname: 'test' }));
       const mockIsOpen = true;
 
       render(<Items isOpen={mockIsOpen} toggleOpen={() => {}} items={[]} />);
@@ -79,7 +78,6 @@ describe('Items', () => {
       expect(screen.getByTestId('navbar-items')).toBeVisible();
     });
     it.skip('should not be visible', () => {
-      jest.mock('next/navigation', () => ({ usePathname: 'test' }));
       const mockIsOpen = false;
 
       render(<Items isOpen={mockIsOpen} toggleOpen={() => {}} items={[]} />);
@@ -88,7 +86,6 @@ describe('Items', () => {
     });
 
     it('should have list of items', () => {
-      jest.mock('next/navigation', () => ({ usePathname: '/page-1' }));
       const mockIsOpen = true;
       const mockItems: NavbarItem[] = [
         { name: 'Page 1', href: '/page-1' },

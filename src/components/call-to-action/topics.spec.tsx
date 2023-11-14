@@ -6,13 +6,13 @@ const testData = [
     title: 'dummy1',
     description: 'dummy1 description',
     href: '/dummy1',
-    icon: <span data-testId="dummy1-icon" />,
+    icon: <span data-testid="dummy1-icon" />,
   },
   {
     title: 'dummy2',
     description: 'dummy2 description',
     href: '/dummy2',
-    icon: <span data-testId="dummy2-icon" />,
+    icon: <span data-testid="dummy2-icon" />,
   },
 ];
 

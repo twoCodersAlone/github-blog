@@ -9,7 +9,6 @@ describe('Description', () => {
       'Unblock your next skill today'
     );
 
-    expect(screen.getByRole('link')).toHaveTextContent('Choose one to me');
-    expect(screen.getByRole('link')).toHaveAttribute('href', '#');
+    expect(screen.getByRole('button')).toHaveTextContent('Choose one to me');
   });
 });
