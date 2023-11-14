@@ -20,9 +20,6 @@ describe('Navbar', () => {
     });
 
     it('should redirect when click on navbar item', () => {
-      // TODO: remove this when pages are created
-      Cypress.on('uncaught:exception', () => false);
-
       navbarItems.forEach(({ name, href }) => {
         const selector = `[data-testid="menu-link-${href}"]`;
         const linkElement = cy.get(selector);
@@ -54,9 +51,6 @@ describe('Navbar', () => {
     });
 
     it('should redirect when click on navbar item', () => {
-      // TODO: remove this when pages are created
-      Cypress.on('uncaught:exception', () => false);
-
       const menuButtonSelector = '[aria-label="Toggle navigation"]';
 
       navbarItems.forEach(({ name, href }) => {

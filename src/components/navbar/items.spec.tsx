@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Items, getLinkProps } from './items';
-import { generateVerifyCurrentPathname } from './navbar';
+import { Items, generateVerifyCurrentHref, getLinkProps } from './items';
 import { AnchorHTMLAttributes } from 'react';
 import { NavbarItem } from '@/src/data/navbar';
 
@@ -40,52 +39,64 @@ describe('Items', () => {
       });
     });
   });
+
+  describe('verifyCurrentHref', () => {
+    it('should not be valid when current page is not the same of page href', () => {
+      const mockCurrentPageHref = '/some-path';
+      const mockPageHref = '/some-path2';
+
+      const verifyCurrentHref = generateVerifyCurrentHref(mockCurrentPageHref);
+
+      expect(verifyCurrentHref(mockPageHref)).toBeFalsy();
+    });
+
+    it('should be valid when current page is the same of page href', () => {
+      const mockCurrentPageHref = '/some-path';
+      const mockPageHref = '/some-path';
+
+      const verifyCurrentHref = generateVerifyCurrentHref(mockCurrentPageHref);
+
+      expect(verifyCurrentHref(mockPageHref)).toBeTruthy();
+    });
+
+    it('should be valid when current page href is nested route of page href', () => {
+      const mockCurrentPageHref = '/some-path/some-sub-path';
+      const mockPageHref = '/some-path';
+
+      const verifyCurrentHref = generateVerifyCurrentHref(mockCurrentPageHref);
+
+      expect(verifyCurrentHref(mockPageHref)).toBeTruthy();
+    });
+  });
+
   describe('Items component', () => {
     it('should be visible', () => {
+      jest.mock('next/navigation', () => ({ usePathname: 'test' }));
       const mockIsOpen = true;
-      const mockVerifyCurrentPathname = generateVerifyCurrentPathname('test');
-      render(
-        <Items
-          isOpen={mockIsOpen}
-          toggleOpen={() => {}}
-          items={[]}
-          verifyCurrentPathname={mockVerifyCurrentPathname}
-        />
-      );
+
+      render(<Items isOpen={mockIsOpen} toggleOpen={() => {}} items={[]} />);
 
       expect(screen.getByTestId('navbar-items')).toBeVisible();
     });
     it.skip('should not be visible', () => {
+      jest.mock('next/navigation', () => ({ usePathname: 'test' }));
       const mockIsOpen = false;
-      const mockVerifyCurrentPathname = generateVerifyCurrentPathname('test');
-      render(
-        <Items
-          isOpen={mockIsOpen}
-          toggleOpen={() => {}}
-          items={[]}
-          verifyCurrentPathname={mockVerifyCurrentPathname}
-        />
-      );
+
+      render(<Items isOpen={mockIsOpen} toggleOpen={() => {}} items={[]} />);
 
       expect(screen.queryByTestId('navbar-items')).not.toBeInTheDocument();
     });
 
     it('should have list of items', () => {
+      jest.mock('next/navigation', () => ({ usePathname: '/page-1' }));
       const mockIsOpen = true;
-      const mockVerifyCurrentPathname =
-        generateVerifyCurrentPathname('/page-1');
       const mockItems: NavbarItem[] = [
         { name: 'Page 1', href: '/page-1' },
         { name: 'Page 2', href: '/page-2' },
       ];
 
       render(
-        <Items
-          isOpen={mockIsOpen}
-          toggleOpen={() => {}}
-          items={mockItems}
-          verifyCurrentPathname={mockVerifyCurrentPathname}
-        />
+        <Items isOpen={mockIsOpen} toggleOpen={() => {}} items={mockItems} />
       );
 
       expect(screen.getByTestId('navbar-items')).toBeInTheDocument();

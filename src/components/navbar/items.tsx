@@ -2,12 +2,12 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { AnchorHTMLAttributes } from 'react';
 import { NavbarItem } from '@/src/data/navbar';
+import { usePathname } from 'next/navigation';
 
 interface NavbarItemsProps {
   items: NavbarItem[];
   isOpen: boolean;
   toggleOpen: () => void;
-  verifyCurrentPathname: (pathname: string) => boolean;
 }
 
 export const getLinkProps = (
@@ -22,12 +22,14 @@ export const getLinkProps = (
   };
 };
 
-export const Items = ({
-  isOpen,
-  toggleOpen,
-  items,
-  verifyCurrentPathname,
-}: NavbarItemsProps) => {
+export const generateVerifyCurrentHref =
+  (currentPageHref: string) => (pageHref: string) =>
+    currentPageHref.startsWith(pageHref);
+
+export const Items = ({ isOpen, toggleOpen, items }: NavbarItemsProps) => {
+  const currentPathname = usePathname();
+  const verifyCurrentHref = generateVerifyCurrentHref(currentPathname);
+
   return (
     <div
       className={clsx(
@@ -44,7 +46,8 @@ export const Items = ({
         )}
       >
         {items.map(({ name, href }) => {
-          const isCurrentPathname = verifyCurrentPathname(href);
+          const isCurrentPathname = verifyCurrentHref(href);
+
           return (
             <Link
               data-testid={`menu-link-${href}`}
