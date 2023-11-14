@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Topics } from './topics';
+import { Items } from './items';
 
 const testData = [
   {
@@ -16,9 +16,9 @@ const testData = [
   },
 ];
 
-describe('Topics', () => {
+describe('Items', () => {
   it('should render topics in list', () => {
-    render(<Topics topics={testData} />);
+    render(<Items items={testData} />);
 
     // title
     expect(screen.getByText('dummy1')).toBeTruthy();

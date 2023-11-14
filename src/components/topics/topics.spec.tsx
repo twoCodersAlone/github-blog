@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import { CallToAction } from './call-to-action';
+import { Topics } from './topics';
 
-describe('CallToAction', () => {
+describe('Topics', () => {
   it('should render', () => {
-    render(<CallToAction />);
+    render(<Topics />);
 
     expect(screen.getByTestId('topics-section')).toBeTruthy();
   });

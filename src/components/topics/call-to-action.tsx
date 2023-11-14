@@ -1,6 +1,6 @@
 import { RandomButton } from './random-button';
 
-export const Description = () => {
+export const CallToAction = () => {
   return (
     <div className="mx-auto max-w-lg text-center lg:mx-0 lg:text-left">
       <h2 className="text-3xl font-bold sm:text-4xl">

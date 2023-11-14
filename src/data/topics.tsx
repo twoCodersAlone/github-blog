@@ -1,6 +1,13 @@
 import { Icons } from '../components/icons';
 
-export const topics = [
+export interface TopicsItem {
+  title: string;
+  href: string;
+  description: string;
+  icon: JSX.Element;
+}
+
+export const topics: TopicsItem[] = [
   {
     title: 'Angular',
     href: '/angular',

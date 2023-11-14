@@ -1,17 +1,13 @@
+import { TopicsItem } from '@/src/data/topics';
 import Link from 'next/link';
 
-interface TopicsParams {
-  topics: {
-    title: string;
-    href: string;
-    description: string;
-    icon: JSX.Element;
-  }[];
+interface ItemsParams {
+  items: TopicsItem[];
 }
-export const Topics = ({ topics }: TopicsParams) => {
+export const Items = ({ items }: ItemsParams) => {
   return (
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-      {topics.map(({ title, href, description, icon }) => (
+      {items.map(({ title, href, description, icon }) => (
         <Link
           aria-label={`Go to ${title} topic`}
           key={href}

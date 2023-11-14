@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import { Description } from './description';
+import { CallToAction } from './call-to-action';
 
-describe('Description', () => {
+describe('CallToAction', () => {
   it('should render', () => {
-    render(<Description />);
+    render(<CallToAction />);
 
     expect(screen.getByRole('heading')).toHaveTextContent(
       'Unblock your next skill today'

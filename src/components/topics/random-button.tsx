@@ -1,6 +1,5 @@
 'use client';
 import { useRouter } from 'next/navigation';
-
 import { topics } from '@/src/data/topics';
 import { Icons } from '../icons';
 
