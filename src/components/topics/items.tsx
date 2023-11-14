@@ -6,7 +6,10 @@ interface ItemsParams {
 }
 export const Items = ({ items }: ItemsParams) => {
   return (
-    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+    <div
+      className="grid grid-cols-2 gap-4 sm:grid-cols-3"
+      data-testid="topics-items"
+    >
       {items.map(({ title, href, description, icon }) => (
         <Link
           aria-label={`Go to ${title} topic`}

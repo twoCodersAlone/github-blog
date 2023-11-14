@@ -8,7 +8,7 @@ export default defineConfig({
     supportFile: './cypress/support/e2e.ts',
     baseUrl: 'http://localhost:3000',
     retries: {
-      runMode: 1,
+      runMode: 2,
     },
     viewportHeight: 1080,
     viewportWidth: 1920,
