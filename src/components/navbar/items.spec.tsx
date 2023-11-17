@@ -17,7 +17,7 @@ describe('Items', () => {
       });
 
       it('should have className current page style', () => {
-        expect(linkProps.className).toBe('font-medium text-blue-500');
+        expect(linkProps.className).toBe('font-medium max-w-fit text-blue-500');
       });
     });
 
@@ -34,7 +34,7 @@ describe('Items', () => {
 
       it('should have className not current page style', () => {
         expect(linkProps.className).toBe(
-          'font-medium text-gray-400 hover:text-gray-500'
+          'font-medium max-w-fit text-gray-400 hover:text-gray-500'
         );
       });
     });
@@ -73,14 +73,14 @@ describe('Items', () => {
     it('should be visible', () => {
       const mockIsOpen = true;
 
-      render(<Items isOpen={mockIsOpen} toggleOpen={() => {}} items={[]} />);
+      render(<Items isOpen={mockIsOpen} items={[]} />);
 
       expect(screen.getByTestId('navbar-items')).toBeVisible();
     });
     it.skip('should not be visible', () => {
       const mockIsOpen = false;
 
-      render(<Items isOpen={mockIsOpen} toggleOpen={() => {}} items={[]} />);
+      render(<Items isOpen={mockIsOpen} items={[]} />);
 
       expect(screen.queryByTestId('navbar-items')).not.toBeInTheDocument();
     });
@@ -92,9 +92,7 @@ describe('Items', () => {
         { name: 'Page 2', href: '/page-2' },
       ];
 
-      render(
-        <Items isOpen={mockIsOpen} toggleOpen={() => {}} items={mockItems} />
-      );
+      render(<Items isOpen={mockIsOpen} items={mockItems} />);
 
       expect(screen.getByTestId('navbar-items')).toBeInTheDocument();
       expect(screen.getByTestId('menu-link-/page-1')).toHaveAttribute(

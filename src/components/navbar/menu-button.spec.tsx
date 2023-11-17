@@ -1,17 +1,17 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+
 import { MenuButton } from './menu-button';
 
 describe('Menu Button', () => {
   it('should show open icon', () => {
     render(<MenuButton isOpen={true} toggleOpen={() => {}} />);
 
-    expect(screen.getByTestId('menu-icon')).toBeTruthy();
+    expect(screen.getByTestId('close-icon')).toBeTruthy();
   });
 
   it('should show close icon', () => {
     render(<MenuButton isOpen={false} toggleOpen={() => {}} />);
-
-    expect(screen.getByTestId('close-icon')).toBeTruthy();
+    expect(screen.getByTestId('menu-icon')).toBeTruthy();
   });
 
   it('should call onToggle function when clicked', () => {

@@ -19,6 +19,6 @@ export const MenuButton = ({ isOpen, toggleOpen }: MenuButtonProps) => (
     aria-label="Toggle navigation"
     onClick={toggleOpen}
   >
-    {isOpen ? <Icons.Menu /> : <Icons.Close />}
+    {isOpen ? <Icons.Close /> : <Icons.Menu />}
   </button>
 );
