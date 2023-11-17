@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Items, getLinkProps } from './items';
-import { generateVerifyCurrentPathname } from './navbar';
+import { Items, generateVerifyCurrentHref, getLinkProps } from './items';
 import { AnchorHTMLAttributes } from 'react';
 import { NavbarItem } from '@/src/data/navbar';
 
@@ -18,7 +17,7 @@ describe('Items', () => {
       });
 
       it('should have className current page style', () => {
-        expect(linkProps.className).toBe('font-medium text-blue-500');
+        expect(linkProps.className).toBe('font-medium max-w-fit text-blue-500');
       });
     });
 
@@ -35,58 +34,65 @@ describe('Items', () => {
 
       it('should have className not current page style', () => {
         expect(linkProps.className).toBe(
-          'font-medium text-gray-400 hover:text-gray-500'
+          'font-medium max-w-fit text-gray-400 hover:text-gray-500'
         );
       });
     });
   });
+
+  describe('verifyCurrentHref', () => {
+    it('should not be valid when current page is not the same of page href', () => {
+      const mockCurrentPageHref = '/some-path';
+      const mockPageHref = '/some-path2';
+
+      const verifyCurrentHref = generateVerifyCurrentHref(mockCurrentPageHref);
+
+      expect(verifyCurrentHref(mockPageHref)).toBeFalsy();
+    });
+
+    it('should be valid when current page is the same of page href', () => {
+      const mockCurrentPageHref = '/some-path';
+      const mockPageHref = '/some-path';
+
+      const verifyCurrentHref = generateVerifyCurrentHref(mockCurrentPageHref);
+
+      expect(verifyCurrentHref(mockPageHref)).toBeTruthy();
+    });
+
+    it('should be valid when current page href is nested route of page href', () => {
+      const mockCurrentPageHref = '/some-path/some-sub-path';
+      const mockPageHref = '/some-path';
+
+      const verifyCurrentHref = generateVerifyCurrentHref(mockCurrentPageHref);
+
+      expect(verifyCurrentHref(mockPageHref)).toBeTruthy();
+    });
+  });
+
   describe('Items component', () => {
     it('should be visible', () => {
       const mockIsOpen = true;
-      const mockVerifyCurrentPathname = generateVerifyCurrentPathname('test');
-      render(
-        <Items
-          isOpen={mockIsOpen}
-          toggleOpen={() => {}}
-          items={[]}
-          verifyCurrentPathname={mockVerifyCurrentPathname}
-        />
-      );
+
+      render(<Items isOpen={mockIsOpen} items={[]} />);
 
       expect(screen.getByTestId('navbar-items')).toBeVisible();
     });
     it.skip('should not be visible', () => {
       const mockIsOpen = false;
-      const mockVerifyCurrentPathname = generateVerifyCurrentPathname('test');
-      render(
-        <Items
-          isOpen={mockIsOpen}
-          toggleOpen={() => {}}
-          items={[]}
-          verifyCurrentPathname={mockVerifyCurrentPathname}
-        />
-      );
+
+      render(<Items isOpen={mockIsOpen} items={[]} />);
 
       expect(screen.queryByTestId('navbar-items')).not.toBeInTheDocument();
     });
 
     it('should have list of items', () => {
       const mockIsOpen = true;
-      const mockVerifyCurrentPathname =
-        generateVerifyCurrentPathname('/page-1');
       const mockItems: NavbarItem[] = [
         { name: 'Page 1', href: '/page-1' },
         { name: 'Page 2', href: '/page-2' },
       ];
 
-      render(
-        <Items
-          isOpen={mockIsOpen}
-          toggleOpen={() => {}}
-          items={mockItems}
-          verifyCurrentPathname={mockVerifyCurrentPathname}
-        />
-      );
+      render(<Items isOpen={mockIsOpen} items={mockItems} />);
 
       expect(screen.getByTestId('navbar-items')).toBeInTheDocument();
       expect(screen.getByTestId('menu-link-/page-1')).toHaveAttribute(

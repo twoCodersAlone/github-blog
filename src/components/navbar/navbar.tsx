@@ -1,26 +1,17 @@
 'use client';
-import { useToggle } from '@mantine/hooks';
 import { Logo } from '@/src/components/logo';
 import { Items } from './items';
 import { MenuButton } from './menu-button';
-import { usePathname } from 'next/navigation';
 import { navbarItems } from '@/src/data/navbar';
 import clsx from 'clsx';
-
-export const generateVerifyCurrentPathname =
-  (currentPathname: string) => (pathname: string) => {
-    const isHomepage = currentPathname === '/';
-    const isHomepageLink = pathname === '/';
-
-    if (isHomepageLink) return isHomepage;
-
-    return currentPathname.startsWith(pathname);
-  };
+import { useState } from 'react';
+import { useRouteChange } from '@/src/hooks/use-route-change';
 
 export const Navbar = () => {
-  const [isOpen, toggleOpen] = useToggle();
-  const currentPathname = usePathname();
-  const verifyCurrentPathname = generateVerifyCurrentPathname(currentPathname);
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleOpen = () => setIsOpen((prevIsOpen) => !prevIsOpen);
+
+  useRouteChange(() => setIsOpen(false));
 
   return (
     <header
@@ -41,12 +32,7 @@ export const Navbar = () => {
           <Logo testId="navbar-logo" />
           <MenuButton isOpen={isOpen} toggleOpen={toggleOpen} />
         </div>
-        <Items
-          items={navbarItems}
-          isOpen={isOpen}
-          toggleOpen={toggleOpen}
-          verifyCurrentPathname={verifyCurrentPathname}
-        />
+        <Items items={navbarItems} isOpen={isOpen} />
       </nav>
     </header>
   );

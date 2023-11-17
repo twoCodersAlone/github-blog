@@ -9,20 +9,20 @@ describe('Navbar', () => {
     it('should render navbar', () => {
       cy.get('[data-testid="navbar"]').should('exist');
     });
+
     it('should render logo', () => {
       cy.get('[data-testid="navbar-logo"]').should('exist');
     });
+
     it('should render navbar items', () => {
       cy.get('[data-testid="navbar-items"]').should('be.visible');
     });
+
     it('should hide menu button', () => {
       cy.get('[aria-label="Toggle navigation"]').should('not.be.visible');
     });
 
     it('should redirect when click on navbar item', () => {
-      // TODO: remove this when pages are created
-      Cypress.on('uncaught:exception', () => false);
-
       navbarItems.forEach(({ name, href }) => {
         const selector = `[data-testid="menu-link-${href}"]`;
         const linkElement = cy.get(selector);
@@ -43,20 +43,20 @@ describe('Navbar', () => {
     it('should render navbar', () => {
       cy.get('[data-testid="navbar"]').should('exist');
     });
+
     it('should render logo', () => {
       cy.get('[data-testid="navbar-logo"]').should('exist');
     });
+
     it('should render navbar items', () => {
       cy.get('[data-testid="navbar-items"]').should('not.be.visible');
     });
+
     it('should show menu button', () => {
       cy.get('[aria-label="Toggle navigation"]').should('be.visible');
     });
 
     it('should redirect when click on navbar item', () => {
-      // TODO: remove this when pages are created
-      Cypress.on('uncaught:exception', () => false);
-
       const menuButtonSelector = '[aria-label="Toggle navigation"]';
 
       navbarItems.forEach(({ name, href }) => {

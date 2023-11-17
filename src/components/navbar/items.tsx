@@ -2,12 +2,11 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { AnchorHTMLAttributes } from 'react';
 import { NavbarItem } from '@/src/data/navbar';
+import { usePathname } from 'next/navigation';
 
 interface NavbarItemsProps {
   items: NavbarItem[];
   isOpen: boolean;
-  toggleOpen: () => void;
-  verifyCurrentPathname: (pathname: string) => boolean;
 }
 
 export const getLinkProps = (
@@ -15,19 +14,21 @@ export const getLinkProps = (
 ): AnchorHTMLAttributes<HTMLAnchorElement> => {
   return {
     className: clsx(
-      'font-medium',
+      'font-medium max-w-fit',
       isCurrentPage ? 'text-blue-500' : 'text-gray-400 hover:text-gray-500'
     ),
     ...(isCurrentPage && { 'aria-current': 'page' }),
   };
 };
 
-export const Items = ({
-  isOpen,
-  toggleOpen,
-  items,
-  verifyCurrentPathname,
-}: NavbarItemsProps) => {
+export const generateVerifyCurrentHref =
+  (currentPageHref: string) => (pageHref: string) =>
+    currentPageHref.startsWith(pageHref);
+
+export const Items = ({ isOpen, items }: NavbarItemsProps) => {
+  const pathname = usePathname();
+  const verifyCurrentHref = generateVerifyCurrentHref(pathname);
+
   return (
     <div
       className={clsx(
@@ -44,14 +45,13 @@ export const Items = ({
         )}
       >
         {items.map(({ name, href }) => {
-          const isCurrentPathname = verifyCurrentPathname(href);
+          const isCurrentPathname = verifyCurrentHref(href);
+
           return (
             <Link
               data-testid={`menu-link-${href}`}
               key={href}
               href={href}
-              // TODO: add a global control to close menu mobile on route change
-              onClick={toggleOpen}
               {...getLinkProps(isCurrentPathname)}
             >
               {name}
