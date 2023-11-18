@@ -40,6 +40,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 - [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
 - [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 - [ES7+ React/Redux/React-Native snippet](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
+- [GraphQL: Syntax Highlighting](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql-syntax)
 
 ## Bugs
 
